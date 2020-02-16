@@ -32,8 +32,8 @@ def receive_and_delete_mails(subject_filter):
     
             if email_subject == subject_filter:
                 mail_list.append(YoutubeMail(email_from, email_body))
-            #mail.store(num, '+FLAGS', '\\Deleted')
-        #mail.expunge()
+            mail.store(num, '+FLAGS', '\\Deleted')
+        mail.expunge()
         mail.close()
         mail.logout()
         return mail_list
