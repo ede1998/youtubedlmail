@@ -2,14 +2,20 @@ FROM python:3-alpine
 
 WORKDIR /usr/bin/youtubedlmail
 
-COPY . ./
+COPY requirements.txt ./
+COPY python/* ./
 
 RUN pip install --no-cache-dir -r requirements.txt
+RUN apk add ffmpeg
 
+ADD run-youtubedlmail.sh ./run-youtubedlmail.sh
+RUN chmod 755 ./run-youtubedlmail.sh
 
-# Add crontab file in the cron directory
-ADD crontab /etc/cron.d/youtubedlmail-cron
-# Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/youtubedlmail-cron
+ADD youtubedlmail-cron /etc/crontabs/youtubedlmail-cron
+RUN /usr/bin/crontab /etc/crontabs/youtubedlmail-cron
 
-CMD cron
+COPY startup.sh /startup.sh
+RUN chmod 755 /startup.sh
+
+CMD ["/startup.sh"]
+
