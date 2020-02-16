@@ -29,6 +29,6 @@ When an error occurs, an error mail is sent.
 
 `python/configuration_example.py` must be modified to work with your setup and renamed to `python/configuration.py`.
 After that you can run
-`docker build -t youtubedlmail .; docker run -d --name ytdlm`
+`docker build -t youtubedlmail .; docker run -d --name ytdlm youtubedlmail`
 
 **!Please take care!** The script wants its own email address. It deletes any mail it fetches.
