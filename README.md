@@ -10,8 +10,8 @@ that start with `audio ` or `video ` and a link to a youtube video after that.
 
 Example mail:
 ```
-From: you@you.com
-To:  your-youtubedlmail@example.com
+From:    you@you.com
+To:      your-youtubedlmail@example.com
 Subject: youtubedlmail
 Body:
 video https://www.youtube.com/watch?v=mHsL7ALp7l8
